@@ -15,8 +15,10 @@ pub fn L(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = input.value();
     let mut output = "[".to_string();
     for i in encode_unicode::StrExt::utf16chars(input.as_str()) {
-        output.push_str(i.to_string().as_str());
-        output.push(',');
+        for j in i {
+            output.push_str(j.to_string().as_str());
+            output.push(',');
+        }
     }
     output.push(']');
     output.parse().unwrap()
