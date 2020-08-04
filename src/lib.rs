@@ -20,6 +20,6 @@ pub fn L(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
             output.push_str("u16,");
         }
     }
-    output.push(']');
+    output.push_str("0]");
     output.parse().unwrap()
 }
