@@ -17,7 +17,7 @@ pub fn L(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     for i in encode_unicode::StrExt::utf16chars(input.as_str()) {
         for j in i {
             output.push_str(j.to_string().as_str());
-            output.push(',');
+            output.push_str("u16,");
         }
     }
     output.push(']');
